@@ -5,10 +5,11 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-image: -moz-linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.18039) 100%);
-    background-image: -webkit-linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.18039) 100%);
-    background-image: -ms-linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.18039) 100%);
-    opacity: 0.902;
+}
+
+p {
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -73,6 +74,7 @@ header {
 }
 
 .news-article {
+    opacity: 0.902;
     height: 100vh;
     position: relative;
     text-align: center;
@@ -80,6 +82,7 @@ header {
 
 .article-image {
     width: 100%;
+    height: 100vh;
     max-height: 100vh;
 }
 
@@ -91,52 +94,56 @@ header {
     color: #fff;
 }
 
-.article-lead-1 {
+.article-headline-1 {
+    width: 100%;
+}
+
+.article-headline-2 {
+    left: 20%;
+    width: 80%;
+}
+
+.article-lead {
     position: absolute;
     bottom: 0%;
-    left: 0%;
     width: 80%;
     height: 20%;
     text-align: justify;
-    font-size: 18px;
-    line-height: 48px;
+    font-size: 16px;
     color: #fff;
     background-color: #181818;
+}
+
+.article-lead-1 {
+    left: 0%;
 }
 
 .article-lead-2 {
+    right: 0%;
+}
+
+.article-lead p {
+    padding: 20px 40px 20px 40px;
+}
+
+.article-side {
     position: absolute;
     bottom: 0%;
-    right: 0%;
-    width: 80%;
-    height: 20%;
-    text-align: justify;
-    font-size: 18px;
-    line-height: 48px;
+    width: 20%;
+    text-align: center;
     color: #fff;
-    background-color: #181818;
 }
 
 .article-side-1 {
-    position: absolute;
-    bottom: 0%;
-    right: 0%;
-    width: 20%;
     height: 20%;
-    text-align: center;
-    color: #fff;
+    right: 0%;
     background-color: #1ba6e2;
 }
 
 .article-side-2 {
-    position: absolute;
-    bottom: 0%;
+    height: 100%;
     left: 0%;
-    width: 20%;
-    height: 20%;
-    text-align: center;
-    color: #fff;
-    background-color: #1ba6e2;
+    background-image: linear-gradient( -0deg, #1ba6e2 20%, rgba(27, 166, 226, 0.5) 20%, rgba(27, 166, 226, 0.5) 80%);
 }
 
 .article-num {
@@ -152,10 +159,17 @@ header {
     color: #fff;
     margin: auto;
     position: absolute;
-    top: 0;
     left: 0;
     bottom: 0;
     right: 0;
+}
+
+.article-num-1 {
+    top: 0;
+}
+
+.article-num-2 {
+    top: 80%;
 }
 
 @media (max-width: 600px) {
@@ -173,5 +187,24 @@ header {
     }
     .nav-mobile {
         display: block;
+    }
+    .article-headline {
+        font-size: 30px;
+    }
+    .article-side-1,
+    .article-side-2 {
+        height: 20%;
+        top: 0%;
+        left: 0%;
+        bottom: 0%;
+        right: 0%;
+        background-color: #1ba6e2;
+    }
+    .article-lead-1,
+    .article-lead-2 {
+        width: 100%;
+    }
+    .article-num-2 {
+        top: 0;
     }
 }
