@@ -28,14 +28,10 @@ var NewsApp = function () {
             }
 
             //construct the html string to append to the article element.
-            htmlString = `
-
-    <img src='` + responseObj[i].thumbnail.sources.landscape.medium + `' class='article-image'>
-    <div class='article-headline ` + articleHeadClass + `'>` + responseObj[i].headline + `</div>
-    <div class='article-lead ` + articleLeadClass + `'>` + responseObj[i].articleLead[0].html + `</div>
-    <div class='article-side ` + articleSideClass + `'>
-        <div class='article-num ` + articleNumClass + `'>` + articleNum + `</div>
-    </div>`;
+            htmlString = "<img src=" + responseObj[i].thumbnail.sources.landscape.medium + " class='article-image'> \
+            <div class='article-headline " + articleHeadClass + "'>" + responseObj[i].headline + "</div> \
+            <div class='article-lead " + articleLeadClass + "'>" + responseObj[i].articleLead[0].html + "</div> \
+            <div class='article-side " + articleSideClass + "'> <div class='article-num " + articleNumClass + "'>" + articleNum + "</div></div>";
 
             //create new element for the article and assign its innerHtml to htmlString
             articleNode = document.createElement('article');
