@@ -72,6 +72,88 @@ header {
     cursor: pointer;
 }
 
+.news-article {
+    height: 100vh;
+    position: relative;
+    text-align: center;
+}
+
+.article-image {
+    width: 100%;
+    max-height: 100vh;
+}
+
+.article-headline {
+    font-size: 50px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 25%;
+    color: #fff;
+}
+
+.article-lead-1 {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 80%;
+    height: 20%;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 48px;
+    color: #fff;
+    background-color: #181818;
+}
+
+.article-lead-2 {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 80%;
+    height: 20%;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 48px;
+    color: #fff;
+    background-color: #181818;
+}
+
+.article-side-1 {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 20%;
+    height: 20%;
+    text-align: center;
+    color: #fff;
+    background-color: #1ba6e2;
+}
+
+.article-side-2 {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 20%;
+    height: 20%;
+    text-align: center;
+    color: #fff;
+    background-color: #1ba6e2;
+}
+
+.article-num {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: #1ba6e2;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: #666;
+    text-align: center;
+    font: 32px Arial, sans-serif;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
 @media (max-width: 600px) {
     .nav-text {
         display: none;
