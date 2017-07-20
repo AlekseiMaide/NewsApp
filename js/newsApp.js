@@ -9,42 +9,54 @@ var NewsApp = function () {
 
     populateArticles = function () {
         responseObj = JSON.parse(this.responseText);
-        console.log(responseObj);
+
         for (i = 0; i < responseObj.length; i++) {
 
             articleNum = i + 1;
 
             //based on if arcticle number is odd/even attach different classes.
-            if (articleNum % 2 == 0) {
-                articleSideClass = "article-side-2";
-                articleLeadClass = "article-lead-2";
-                articleNumClass = "article-num-2";
-                articleHeadClass = "article-headline-2";
-            } else {
-                articleSideClass = "article-side-1";
-                articleLeadClass = "article-lead-1";
-                articleNumClass = "article-num-1";
-                articleHeadClass = "article-headline-1";
-            }
+            attachCSSClasses();
 
             //construct the html string to append to the article element.
-            htmlString = "<img src=" + responseObj[i].thumbnail.sources.landscape.medium + " class='article-image'> \
+            constructArticleHtml();
+
+            //create new element for the article and assign its innerHtml to htmlString
+            createArticle();
+        }
+    }
+
+    attachCSSClasses = function () {
+        if (articleNum % 2 == 0) {
+            articleSideClass = "article-side-2";
+            articleLeadClass = "article-lead-2";
+            articleNumClass = "article-num-2";
+            articleHeadClass = "article-headline-2";
+        } else {
+            articleSideClass = "article-side-1";
+            articleLeadClass = "article-lead-1";
+            articleNumClass = "article-num-1";
+            articleHeadClass = "article-headline-1";
+        }
+    }
+
+    constructArticleHtml = function () {
+        htmlString = "<img src=" + responseObj[i].thumbnail.sources.landscape.medium + " class='article-image'> \
             <div class='article-headline " + articleHeadClass + "'>" + responseObj[i].headline + "</div> \
             <div class='article-lead " + articleLeadClass + "'>" + responseObj[i].articleLead[0].html + "</div> \
             <div class='article-side " + articleSideClass + "'> <div class='article-num " + articleNumClass + "'>" + articleNum + "</div></div>";
+    }
 
-            //create new element for the article and assign its innerHtml to htmlString
-            articleNode = document.createElement('article');
-            articleNode.classList.add("news-article");
-            parentNode.appendChild(articleNode);
-            articleNode.innerHTML = htmlString;
+    createArticle = function () {
+        articleNode = document.createElement('article');
+        articleNode.classList.add("news-article");
+        parentNode.appendChild(articleNode);
+        articleNode.innerHTML = htmlString;
 
-            //add data-id attribute to identify the article.
-            articleNode.dataset.id = responseObj[i].id
+        //add data-id attribute to identify the article.
+        articleNode.dataset.id = responseObj[i].id
 
-            //attach article events
-            articleNode.addEventListener('click', articleClick, false);
-        }
+        //attach article events
+        articleNode.addEventListener('click', articleClick, false);
     }
 
     articleClick = function (event) {
