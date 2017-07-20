@@ -14,18 +14,14 @@ var NewsApp = function () {
 
             articleNum = i + 1;
 
-            //based on if arcticle number is odd/even attach different classes.
-            attachCSSClasses();
-
-            //construct the html string to append to the article element.
+            defineArticleStyles();
             constructArticleHtml();
-
-            //create new element for the article and assign its innerHtml to htmlString
             createArticle();
         }
     }
 
-    attachCSSClasses = function () {
+    defineArticleStyles = function () {
+        //based on if arcticle number is odd/even attach different classes.
         if (articleNum % 2 == 0) {
             articleSideClass = "article-side-2";
             articleLeadClass = "article-lead-2";
@@ -40,6 +36,7 @@ var NewsApp = function () {
     }
 
     constructArticleHtml = function () {
+        //construct the html string to append to the article element.
         htmlString = "<img src=" + responseObj[i].thumbnail.sources.landscape.medium + " class='article-image'> \
             <div class='article-headline " + articleHeadClass + "'>" + responseObj[i].headline + "</div> \
             <div class='article-lead " + articleLeadClass + "'>" + responseObj[i].articleLead[0].html + "</div> \
@@ -47,6 +44,7 @@ var NewsApp = function () {
     }
 
     createArticle = function () {
+        //create new element for the article and assign its innerHtml to htmlString
         articleNode = document.createElement('article');
         articleNode.classList.add("news-article");
         parentNode.appendChild(articleNode);
